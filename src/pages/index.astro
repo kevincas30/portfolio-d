@@ -1,0 +1,308 @@
+---
+import '../styles/global.css';
+import TypewriterEffect from '../components/TypewriterEffect';
+import ContactButtons from '../components/ContactButtons';
+import Gallery from '../components/Gallery';
+import FloatingDecorations from '../components/FloatingDecorations';
+import { typewriterPhrases } from '../data/portfolio';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kevin Castillo — Diseñador Gráfico, Creador de Contenido UGC y Brand Storyteller. Portafolio de trabajos en diseño gráfico, social media y video." />
+    <title>Kevin Castillo · Diseñador & Creador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;600;700;800;900&family=Raleway:wght@300;400;500;600;700&family=Borel&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/assets/logos/logo_azul.png" />
+  </head>
+
+  <body class="bg-[#001a4d] min-h-screen overflow-x-hidden">
+
+    <!-- Floating decorative elements (parallax) -->
+    <FloatingDecorations client:load />
+
+    <!-- Background grid texture -->
+    <div
+      class="fixed inset-0 pointer-events-none z-0"
+      style="background-image: linear-gradient(rgba(0,82,204,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,82,204,0.04) 1px, transparent 1px); background-size: 40px 40px;"
+      aria-hidden="true"
+    />
+
+    <!-- Noise overlay -->
+    <div class="noise-overlay fixed inset-0 pointer-events-none z-0" aria-hidden="true" />
+
+    <!-- ══════════════════════════════════════
+         HERO SECTION
+    ══════════════════════════════════════ -->
+    <section
+      id="hero"
+      class="relative z-10 min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-10 pb-16"
+      style="background: linear-gradient(160deg, #001a4d 0%, #002a7a 50%, #001a4d 100%);"
+    >
+      <!-- Top: logo -->
+      <div class="mb-10 md:mb-12">
+        <img
+          src="/assets/logos/logo_blanco.png"
+          alt="Kevin Castillo logo"
+          class="h-10 md:h-12 object-contain opacity-90"
+        />
+      </div>
+
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 max-w-7xl mx-auto w-full">
+
+        <!-- LEFT: Text content -->
+        <div class="flex-1 order-2 lg:order-1">
+
+          <!-- Insight label -->
+          <p class="font-borel text-blue-300 text-lg mb-4 tracking-wide opacity-90">
+            Hola, soy Kevin 👋
+          </p>
+
+          <!-- Main headline -->
+          <h1 class="font-grandstander font-black leading-tight mb-4">
+            <span class="block text-4xl md:text-5xl lg:text-6xl text-white">
+              Diseño que
+            </span>
+            <span
+              class="block text-4xl md:text-5xl lg:text-6xl"
+              style="background: linear-gradient(135deg, #60a5fa 0%, #2d6dff 50%, #818cf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+            >
+              convierte
+            </span>
+            <span class="block text-4xl md:text-5xl lg:text-6xl text-white">
+              & conecta.
+            </span>
+          </h1>
+
+          <!-- Typewriter -->
+          <div class="font-grandstander text-xl md:text-2xl text-white/80 mb-6 min-h-[2rem]">
+            <TypewriterEffect phrases={typewriterPhrases} client:load />
+          </div>
+
+          <!-- Bio paragraph -->
+          <p class="font-raleway text-white/60 text-base md:text-lg leading-relaxed max-w-xl mb-2">
+            Creo identidades visuales, contenido social y experiencias de marca que
+            <span class="text-blue-300 font-semibold"> dejan huella</span>.
+            Especializado en diseño gráfico, UGC y storytelling visual para marcas que
+            quieren destacar en el entorno digital.
+          </p>
+
+          <p class="font-borel text-blue-400/70 text-sm italic mb-2">
+            "Un buen diseño no se ve — se siente."
+          </p>
+
+          <!-- Contact buttons -->
+          <ContactButtons client:load />
+
+          <!-- Stats row -->
+          <div class="flex gap-8 mt-10 pt-8 border-t border-white/10">
+            {[
+              { num: '50+', label: 'Proyectos' },
+              { num: '15+', label: 'Clientes' },
+              { num: '3+', label: 'Años exp.' },
+            ].map(({ num, label }) => (
+              <div class="text-center">
+                <p class="font-grandstander font-black text-2xl md:text-3xl text-white">{num}</p>
+                <p class="font-raleway text-xs text-white/50 uppercase tracking-widest mt-0.5">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- RIGHT: Profile photo -->
+        <div class="flex-shrink-0 order-1 lg:order-2 relative">
+
+          <!-- Glow ring -->
+          <div
+            class="absolute inset-0 rounded-full animate-pulse-glow"
+            style="margin: -16px; border-radius: 50%; background: radial-gradient(circle, rgba(0,82,204,0.3) 0%, transparent 70%);"
+            aria-hidden="true"
+          />
+
+          <!-- Decorative ring -->
+          <div
+            class="absolute inset-0 rounded-[40%_60%_60%_40%/40%_40%_60%_60%] border-2 border-blue-500/30 animate-spin-slow"
+            style="margin: -8px;"
+            aria-hidden="true"
+          />
+
+          <!-- Photo container with organic mask -->
+          <div
+            class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden"
+            style="border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%; box-shadow: 0 0 0 3px rgba(0,82,204,0.4), 0 20px 80px rgba(0,82,204,0.35), 0 8px 32px rgba(0,0,0,0.4);"
+          >
+            <img
+              src="/assets/foto/foto_con_fondo.jpeg"
+              alt="Kevin Castillo"
+              class="w-full h-full object-cover object-top"
+            />
+            <!-- Inner gradient overlay -->
+            <div
+              class="absolute inset-0"
+              style="background: linear-gradient(180deg, transparent 50%, rgba(0,26,77,0.5) 100%);"
+            />
+          </div>
+
+          <!-- Floating badge: Available for work -->
+          <div
+            class="absolute -bottom-4 -right-4 glass-card-blue px-4 py-2.5 rounded-xl flex items-center gap-2 shadow-electric"
+            style="backdrop-filter: blur(12px);"
+          >
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block" />
+            <span class="font-raleway font-semibold text-xs text-white/90">Disponible</span>
+          </div>
+
+          <!-- Floating badge: Location -->
+          <div
+            class="absolute -top-4 -left-4 glass-card px-3 py-2 rounded-xl flex items-center gap-2"
+            style="backdrop-filter: blur(12px);"
+          >
+            <span class="text-sm">📍</span>
+            <span class="font-raleway text-xs text-white/70">España</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
+        <span class="font-raleway text-xs text-white/60 uppercase tracking-widest">Ver trabajo</span>
+        <div class="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-white/60 animate-bounce">
+          <path d="M7 10l5 5 5-5" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         PORTFOLIO / GALLERY SECTION
+    ══════════════════════════════════════ -->
+    <section
+      id="portfolio"
+      class="relative z-10 px-6 md:px-12 lg:px-24 py-20"
+    >
+      <!-- Section title -->
+      <div class="max-w-7xl mx-auto mb-12">
+        <p class="font-borel text-blue-300 text-lg mb-2">Mi trabajo</p>
+        <h2 class="font-grandstander font-black text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
+          Explora el
+          <span
+            style="background: linear-gradient(135deg, #60a5fa, #2d6dff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+          >portafolio</span>
+        </h2>
+        <p class="font-raleway text-white/50 mt-3 text-base max-w-2xl">
+          Selecciona una carpeta para explorar cada categoría de trabajo.
+          Desde banners de marca hasta contenido UGC, cada pieza tiene una historia.
+        </p>
+      </div>
+
+      <div class="max-w-7xl mx-auto">
+        <Gallery client:load />
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         CONTACT / FOOTER SECTION
+    ══════════════════════════════════════ -->
+    <section
+      id="contact"
+      class="relative z-10 px-6 md:px-12 lg:px-24 py-24"
+      style="background: linear-gradient(180deg, transparent 0%, rgba(0,10,40,0.8) 100%);"
+    >
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="font-borel text-blue-300 text-xl mb-4">¿Tienes un proyecto en mente?</p>
+        <h2 class="font-grandstander font-black text-4xl md:text-5xl text-white mb-6 leading-tight">
+          Hablemos y
+          <span
+            style="background: linear-gradient(135deg, #60a5fa, #2d6dff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+          > creemos algo</span>
+          <br /> increíble.
+        </h2>
+        <p class="font-raleway text-white/50 text-base mb-10 leading-relaxed">
+          Estoy disponible para proyectos freelance, colaboraciones de marca y
+          contenido UGC. Escríbeme y cuéntame tu visión.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="mailto:kevincastillo3001@outlook.com"
+            class="btn-primary text-white no-underline text-base px-8 py-4"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            kevincastillo3001@outlook.com
+          </a>
+          <a
+            href="https://wa.me/34625959676"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-ghost text-white no-underline text-base px-8 py-4"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-green-400">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span class="text-green-400">+34 625 959 676</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <img
+          src="/assets/logos/logo_blanco.png"
+          alt="Kevin Castillo"
+          class="h-8 opacity-60 object-contain"
+        />
+        <p class="font-raleway text-xs text-white/30 text-center">
+          © {new Date().getFullYear()} Kevin Castillo · Diseñador Gráfico & Creador de Contenido
+        </p>
+        <div class="flex gap-4">
+          <a
+            href="https://www.tiktok.com/@kevsss.30?_r=1&_t=ZS-96qzCAwPGi7"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-white/30 hover:text-white/70 transition-colors"
+            aria-label="TikTok"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.29 6.29 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.79 1.52V6.75a4.85 4.85 0 01-1.02-.06z"/>
+            </svg>
+          </a>
+          <a
+            href="mailto:kevincastillo3001@outlook.com"
+            class="text-white/30 hover:text-white/70 transition-colors"
+            aria-label="Email"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll reveal script -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.section-reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
