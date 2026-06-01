@@ -1,6 +1,9 @@
 # Build output
 dist/
 
+# Videos (archivos pesados — alojar en CDN)
+public/assets/videos/
+
 # Dependencies
 node_modules/
 
